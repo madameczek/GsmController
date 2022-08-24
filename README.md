@@ -3,3 +3,6 @@ A time has come to bring to life GSM module, which will replace my old GSM diale
 So I wired my Rasperry Pi to the module, bought SIM card and started to play with the module. It took a while until I configured module for use.  
 After this I wrote an app able to communicate with the module over serial interface.  
 The next will come an api to allow using it in home automation system.
+
+Current code is a POC of interfacing device with .NET app. I experienced problems with serial port when using Threads with .NET Core 3.1. Now communitation is stable.  
+Next business logic will be implemented.
