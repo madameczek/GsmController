@@ -26,14 +26,11 @@ public class SerialPortFactory
             return _instance;
         }
             
-
         Ensure.That(_configuration.PortName).IsNotNullOrEmpty();
     
         if (SerialPort.GetPortNames().All(name => name != _configuration.PortName))
             throw new IOException("Requested port is not available");
         
-        _logger.LogInformation("Serial port configured on {PortName}", _configuration.PortName);
-
         var port = new SerialPort
         {
             PortName = _configuration.PortName!,
@@ -43,6 +40,9 @@ public class SerialPortFactory
         };
         
         port.Open();
+
+        _logger.LogInformation("Serial port configured on {PortName}", _configuration.PortName);
+
         return port;
     }
 }
